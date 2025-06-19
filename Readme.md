@@ -14,6 +14,7 @@ This repo is where I solve and organize coding problems from platforms like Leet
 | 17      | 🟩 Easy       | 1            | Two Sum                                        | [LeetCode - Two Sum](./leetcode/2025/June/17-twoSum.js)                                                          |
 | 17      | 🟨 Medium     | 3            | Longest Substring Without Repeating Characters | [LeetCode - Longest Substring Without Repeating Characters](./leetcode/2025/June/17-lengthOfLongestSubstring.js) |
 | 19      | 🟩 Easy       | 643          | Maximum Average Subarray I                     | [Leetcode - Maximum Average Subarray I ](./leetcode/2025/June/19-maximumAverageSubArray.js)
+| 19     | 🟩 Easy        | 125          | Valid Palindrome                               | [Leetcode - Valid Palindrome ](./leetcode/2025/June/19-validPalindrome.js)
 
 ---
 
