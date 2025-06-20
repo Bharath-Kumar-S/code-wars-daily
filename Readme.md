@@ -19,6 +19,8 @@ This repo is where I solve and organize coding problems from platforms like Leet
 | 19      | 🟩 Easy       | 283          | Move Zeros                        | [Leetcode - Move Zeros](./leetcode/2025/June/19-moveZeros.js)
 | 19      | 🟨 Medium     | 11           | Comtainer with most water         | [Leetcode - Container with most water](./leetcode/2025/June/19-containerWithMostWater.js)
 | 20      | 🟩 Easy       |     20       | Valid Parentheses                 | [Leetcode - Valid Parentheses](./leetcode/2025/June/20-validParentheses.js)
+| 20      | 🟨 Medium     |  2           | Add Two Numbers                   | [Leetcode - Add Two Numbers](./leetcode/2025/June/20-addTwoNumbers.js)
+| 20      | 🟥 Hard       |  4           | Median of Two Sorted Arrays       | [Leetcode - Median of Two Sorted Arrays](./leetcode/2025/June/20-medianOfTwoSortedArrays.js)
 
 ---
 
