@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Modal Dialog</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #modalOverlay.hidden {
+            display: none;
+        }
+
+        #modalOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        #modal {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            min-width: 300px;
+            max-width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
+
+        #modal button {
+            margin-top: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        #closeModalBtn {
+            float: right;
+            border: none;
+            background: transparent;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="openModalBtn">Open Modal</button>
+
+    <div id="modalOverlay" class="hidden">
+        <div id="modal" role="dialog" aria-modal="true" tabindex="-1">
+            <button id="closeModalBtn" aria-label="Close">&times;</button>
+            <h2>Modal Title</h2>
+            <p>This is a modal. Use Tab to navigate and Esc to close.</p>
+            <button>OK</button>
+            <button>Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        const openBtn = document.getElementById('openModalBtn');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modal = document.getElementById('modal');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+        function openModal() {
+            modalOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                modal.focus(); // Wait for DOM to update
+            }, 0);
+            document.addEventListener('keydown', handleKeyDown);
+        }
+
+        function closeModal() {
+            modalOverlay.classList.add('hidden');
+            document.removeEventListener('keydown', handleKeyDown);
+            openBtn.focus();
+        }
+
+        function handleKeyDown(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+
+            if (e.key === 'Tab') {
+                const focusables = modal.querySelectorAll(focusableSelectors);
+                if (focusables.length === 0) return;
+
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        }
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+
+        // Click outside to close
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
