@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Parent } from "./components/Parent";
 import { Portals } from "./Portals/Portals";
+import { LazyLoading } from "./LazyLoading";
 
 type Todo = {
   id: number;
@@ -100,6 +101,8 @@ export default function App() {
 
       <Parent />
       <Portals />
+
+      <LazyLoading />
     </div>
   );
 }
