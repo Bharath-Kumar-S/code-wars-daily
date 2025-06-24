@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { Parent } from "./components/Parent";
+import { Portals } from "./Portals/Portals";
 
 type Todo = {
   id: number;
@@ -98,6 +99,7 @@ export default function App() {
       </section>
 
       <Parent />
+      <Portals />
     </div>
   );
 }
